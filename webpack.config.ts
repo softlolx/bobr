@@ -1,9 +1,10 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import webpack from 'webpack';
 
-const path = require('path');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+import path from 'path';
+
+const config: webpack.Configuration = {
   mode: 'development',
   entry: path.resolve(__dirname, 'src', 'index.ts'),
   output: {
@@ -29,3 +30,5 @@ module.exports = {
     }),
   ],
 };
+
+export default config;
