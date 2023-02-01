@@ -1,11 +1,12 @@
 import './styles/index.scss';
 import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
-import { MainPageLazy } from 'pages/MainPage/MainPage.lazy';
-import { AboutPageLazy } from 'pages/AboutPage/AboutPage.lazy';
+
 import { Suspense } from 'react';
 
 import { classNames } from 'helpers/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider';
+import { AboutPage } from 'pages/AboutPage';
+import { MainPage } from 'pages/MainPage';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -22,11 +23,11 @@ const App = () => {
     },
     {
       path: '/main',
-      element: <MainPageLazy />,
+      element: <MainPage />,
     },
     {
       path: '/about',
-      element: <AboutPageLazy />,
+      element: <AboutPage />,
     },
   ]);
 
