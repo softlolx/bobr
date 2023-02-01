@@ -1,10 +1,10 @@
 import './styles/index.scss';
 import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
-import { MainPageLazy } from './pages/MainPage/MainPage.lazy';
-import { AboutPageLazy } from './pages/AboutPage/AboutPage.lazy';
-import { Suspense, useContext, useState } from 'react';
-import { useTheme } from './theme/useTheme';
-import { classNames } from './helpers/classNames/classNames';
+import { MainPageLazy } from '../pages/MainPage/MainPage.lazy';
+import { AboutPageLazy } from '../pages/AboutPage/AboutPage.lazy';
+import { Suspense } from 'react';
+import { useTheme } from '../theme/useTheme';
+import { classNames } from '../helpers/classNames/classNames';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
