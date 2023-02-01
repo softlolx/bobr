@@ -1,12 +1,8 @@
-import { Link } from 'react-router-dom';
-
+import { Navbar } from 'widgets/Navbar';
 const MainPage = () => {
   return (
     <div>
-      <div>
-        <Link to={'/main'}>Main</Link>
-        <Link to={'/about'}>About</Link>
-      </div>
+      <Navbar />
       <div>Main page</div>
     </div>
   );

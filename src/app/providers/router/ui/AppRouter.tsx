@@ -2,17 +2,13 @@ import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { Suspense } from 'react';
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
+import { Navbar } from 'widgets/Navbar';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: (
-        <div>
-          <Link to={'/main'}>Main</Link>
-          <Link to={'/about'}>About</Link>
-        </div>
-      ),
+      element: <Navbar />,
     },
     {
       path: '/main',
