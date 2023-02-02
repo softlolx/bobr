@@ -13,7 +13,7 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
           modules: {
             auto: (resPath: string) => !!resPath.includes('.module.'),
             localIdentName: options.isDev
-              ? '[name][local]--[hash:base64:8]'
+              ? '[name]--[local]--[hash:base64:8]'
               : '[local]--[hash:base64:8]',
           },
         },

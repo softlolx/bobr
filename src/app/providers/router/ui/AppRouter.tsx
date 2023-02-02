@@ -8,10 +8,6 @@ const AppRouter = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Navbar />,
-    },
-    {
-      path: '/main',
       element: <MainPage />,
     },
     {
