@@ -3,6 +3,8 @@
   height: var(--navbar-height);
   background: var(--inverted-bg-color);
   display: flex;
+
+  justify-content: flex-end;
   gap: 20px;
   padding: 20px;
 }
