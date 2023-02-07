@@ -1,9 +1,7 @@
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { Suspense } from 'react';
-import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
+import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -16,13 +14,13 @@ const AppRouter = () => {
       element: <AboutPage />,
     },
   ]);
+
+  const navigate = useNavigate();
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {/* <Navbar /> */}
-      <div className='page__wrapper'>
-        <Sidebar />
-        <RouterProvider router={router} />
-      </div>
+      {/* <button onClick={() => navigate('/about')}>about</button> */}
+      <RouterProvider router={router} />
     </Suspense>
   );
 };

@@ -1,10 +1,15 @@
 import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+
 const MainPage = () => {
   return (
-    <div>
+    <>
       <Navbar />
-      <div>Main page</div>
-    </div>
+      <div className='page__wrapper'>
+        <Sidebar />
+        <div className='page__content'>Main page</div>
+      </div>
+    </>
   );
 };
 

@@ -8,7 +8,11 @@ import './styles/index.scss';
 
 const App = () => {
   const { theme } = useTheme();
-  return <div className={classNames('App', {}, [theme])}></div>;
+  return (
+    <div className={classNames('App', {}, [theme])}>
+      <AppRouter />
+    </div>
+  );
 };
 
 export default App;
