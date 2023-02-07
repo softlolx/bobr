@@ -9,5 +9,11 @@
   background-color: var(--bg-color);
   color: var(--primary-color);
 
+  display: flex;
+
   min-height: 100vh;
+}
+
+.page__wrapper {
+  flex-grow: 1;
 }

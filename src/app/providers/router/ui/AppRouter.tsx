@@ -3,6 +3,7 @@ import { MainPage } from 'pages/MainPage';
 import { Suspense } from 'react';
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
 import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -17,7 +18,11 @@ const AppRouter = () => {
   ]);
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <RouterProvider router={router} />
+      {/* <Navbar /> */}
+      <div className='page__wrapper'>
+        <Sidebar />
+        <RouterProvider router={router} />
+      </div>
     </Suspense>
   );
 };
