@@ -1,25 +1,31 @@
+import App from 'app/App';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
+import { RootWrapper } from './RootWrapper';
 import { Suspense } from 'react';
-import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, useNavigate, Outlet } from 'react-router-dom';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <MainPage />,
-    },
-    {
-      path: '/about',
-      element: <AboutPage />,
+      element: <RootWrapper />,
+      errorElement: <div>an error</div>,
+      children: [
+        {
+          path: '/',
+          element: <MainPage />,
+        },
+        {
+          path: '/about',
+          element: <AboutPage />,
+        },
+      ],
     },
   ]);
 
-  const navigate = useNavigate();
-
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      {/* <button onClick={() => navigate('/about')}>about</button> */}
       <RouterProvider router={router} />
     </Suspense>
   );
