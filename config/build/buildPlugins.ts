@@ -2,7 +2,7 @@ import { BuildOptions } from './types/config';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-const ReactRefreshWebpackPlugin = require('react-refresh-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
