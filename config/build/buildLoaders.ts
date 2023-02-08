@@ -27,7 +27,10 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
-      options: { presets: ['@babel/env', '@babel/preset-react'] },
+      options: {
+        presets: ['@babel/env', '@babel/preset-react'],
+        plugins: [['i18next-extract', { locales: ['ru', 'en'], keyAsDefaultValues: true }]],
+      },
     },
   };
 
