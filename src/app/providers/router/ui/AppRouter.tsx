@@ -1,16 +1,15 @@
-import App from 'app/App';
+import { Suspense } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { RootWrapper } from './RootWrapper';
-import { Suspense } from 'react';
-import { createBrowserRouter, RouterProvider, useNavigate, Outlet } from 'react-router-dom';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <RootWrapper />,
-      errorElement: <div>an error</div>,
+      errorElement: <div>404 my boi</div>,
       children: [
         {
           path: '/',

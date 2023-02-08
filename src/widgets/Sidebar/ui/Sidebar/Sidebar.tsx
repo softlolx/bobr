@@ -2,6 +2,7 @@ import { FC, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cn from './Sidebar.module.scss';
 
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 interface SidebarProps {
   className?: string;
 }
@@ -17,6 +18,10 @@ export const Sidebar: FC<SidebarProps> = (props) => {
   return (
     <div className={classNames(cn.Sidebar, { [cn.collapsed]: collapsed }, [className])}>
       <button onClick={onToggle}>Toggle</button>
+      <div className={cn.switchers}>
+        <ThemeSwitcher />
+        {/* <LangSwitcher /> */}
+      </div>
     </div>
   );
 };

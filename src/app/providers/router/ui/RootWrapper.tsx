@@ -11,7 +11,9 @@ export const RootWrapper: FC<RootWrapperProps> = (props) => {
       <Navbar />
       <div className='page__wrapper'>
         <Sidebar />
-        <Outlet />
+        <div className='page__content'>
+          <Outlet />
+        </div>
       </div>
     </>
   );
