@@ -1,13 +1,13 @@
 .Button {
   border: none;
   background-color: transparent;
+  color: var(--primary-color);
   cursor: pointer;
 }
 
 .clear {
   border: none;
   background-color: transparent;
-  margin: 0;
   padding: 0;
   outline: none;
 }
