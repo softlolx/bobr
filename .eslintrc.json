@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
@@ -19,6 +20,7 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "indent": ["error", 2],
+    "max-len": ["warn", { "code": 120 }],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "jsx-quotes": ["warn", "prefer-single"],
