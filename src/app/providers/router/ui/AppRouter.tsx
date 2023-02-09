@@ -1,29 +1,41 @@
 import { Suspense } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { PageLoader } from 'shared/ui/PageLoader';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { RootWrapper } from './RootWrapper';
+
+const ErrorBoundaryLayout = () => (
+  <ErrorBoundary>
+    <Outlet />
+  </ErrorBoundary>
+);
 
 const AppRouter = () => {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <RootWrapper />,
-      errorElement: <NotFoundPage />,
+      // errorElement: <NotFoundPage />,
       children: [
         {
-          path: '*',
-          element: <NotFoundPage />,
-        },
-        {
-          index: true,
-          element: <MainPage />,
-        },
-        {
-          path: '/about',
-          element: <AboutPage />,
+          element: <ErrorBoundaryLayout />,
+          children: [
+            {
+              path: '*',
+              element: <NotFoundPage />,
+            },
+            {
+              index: true,
+              element: <MainPage />,
+            },
+            {
+              path: '/about',
+              element: <AboutPage />,
+            },
+          ],
         },
       ],
     },

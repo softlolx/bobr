@@ -10,11 +10,16 @@ interface PageErrorProps {
 export const PageError: FC<PageErrorProps> = (props) => {
   const { className } = props;
 
+  const onReaload = () => {
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  };
+
   return (
     <div className={classNames(cn.PageError)}>
       <h1>Oops, smth went wrong</h1>
       <h3>Feel free to reload page by clicking the button below</h3>
-      <Button>Reload</Button>
+      <Button onClick={onReaload}>Reload</Button>
     </div>
   );
 };
