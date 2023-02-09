@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { PageLoader } from 'shared/ui/PageLoader';
 import { RootWrapper } from './RootWrapper';
 
 const AppRouter = () => {
@@ -10,7 +11,6 @@ const AppRouter = () => {
     {
       path: '/',
       element: <RootWrapper />,
-
       errorElement: <NotFoundPage />,
       children: [
         {
@@ -30,7 +30,7 @@ const AppRouter = () => {
   ]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<PageLoader />}>
       <RouterProvider router={router} />
     </Suspense>
   );
