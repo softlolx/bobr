@@ -10,10 +10,15 @@ const AppRouter = () => {
     {
       path: '/',
       element: <RootWrapper />,
+
       errorElement: <NotFoundPage />,
       children: [
         {
-          path: '/',
+          path: '*',
+          element: <NotFoundPage />,
+        },
+        {
+          index: true,
           element: <MainPage />,
         },
         {

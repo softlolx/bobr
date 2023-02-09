@@ -42,10 +42,10 @@
     "object-curly-newline": [
       "error",
       {
-        "ObjectExpression": { "multiline": true, "minProperties": 3 },
+        "ObjectExpression": { "multiline": true },
         "ObjectPattern": { "multiline": true },
-        "ImportDeclaration": "never",
-        "ExportDeclaration": { "multiline": true, "minProperties": 6 }
+        "ImportDeclaration": { "multiline": true },
+        "ExportDeclaration": { "multiline": true }
       }
     ],
     "comma-dangle": [
@@ -53,8 +53,8 @@
       {
         "arrays": "always-multiline",
         "objects": "always-multiline",
-        "imports": "never",
-        "exports": "never",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
         "functions": "never"
       }
     ]
