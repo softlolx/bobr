@@ -1,6 +1,6 @@
+import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
-import { classNames } from 'shared/lib/classNames/classNames';
 
 import './styles/index.scss';
 
