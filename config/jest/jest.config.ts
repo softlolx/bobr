@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
@@ -32,14 +34,13 @@ export default {
     '^react-dnd-html5-backend$': 'react-dnd-html5-backend/dist/cjs',
     '^dnd-core$': 'dnd-core/dist/cjs',
     '\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.svg$': path.resolve(__dirname, 'reactEmptyComponent.tsx'),
   },
 
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.js'],
 
   // A map from regular expressions to paths to transformers
-  transform: {
-    '^.+\\.[t|j]sx?$': 'ts-jest',
-  },
+  transform: { '^.+\\.[t|j]sx?$': 'ts-jest' },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$'],
