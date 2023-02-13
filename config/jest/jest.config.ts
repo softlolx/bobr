@@ -19,8 +19,10 @@ export default {
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
+  modulePaths: ['<rootDir>/src'],
+
   // The root directory that Jest should scan for tests and modules within
-  rootDir: '../../src',
+  rootDir: '../../',
 
   // The glob patterns Jest uses to detect test files
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
@@ -29,7 +31,10 @@ export default {
     '^react-dnd$': 'react-dnd/dist/cjs',
     '^react-dnd-html5-backend$': 'react-dnd-html5-backend/dist/cjs',
     '^dnd-core$': 'dnd-core/dist/cjs',
+    '\\.(css|scss)$': 'identity-obj-proxy',
   },
+
+  setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.js'],
 
   // A map from regular expressions to paths to transformers
   transform: {
