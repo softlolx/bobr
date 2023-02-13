@@ -37,7 +37,7 @@ export default {
     '\\.svg$': path.resolve(__dirname, 'reactEmptyComponent.tsx'),
   },
 
-  setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
 
   // A map from regular expressions to paths to transformers
   transform: { '^.+\\.[t|j]sx?$': 'ts-jest' },
