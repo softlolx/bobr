@@ -40,7 +40,7 @@
     "no-underscore-dangle": "off",
 
     "object-curly-newline": [
-      "error",
+      "warn",
       {
         "ObjectExpression": { "multiline": true },
         "ObjectPattern": { "multiline": true },

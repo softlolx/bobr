@@ -1,26 +1,9 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
+import buildCssLoader from './buildCssLoader';
 
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
-  const styleLoaders = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            auto: (resPath: string) => !!resPath.includes('.module.'),
-            localIdentName: options.isDev
-              ? '[name]--[local]--[hash:base64:8]'
-              : '[local]--[hash:base64:8]',
-          },
-        },
-      },
-      'sass-loader',
-    ],
-  };
+  const styleLoaders = buildCssLoader(options.isDev);
 
   const babelLoader = {
     test: /\.m?(ts|tsx|js|jsx)$/,
@@ -29,9 +12,15 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
       loader: 'babel-loader',
       options: {
         presets: ['@babel/env', '@babel/preset-react'],
-        plugins: [['i18next-extract', {
-          locales: ['ru', 'en'], keyAsDefaultValues: true,
-        }]],
+        plugins: [
+          [
+            'i18next-extract',
+            {
+              locales: ['ru', 'en'],
+              keyAsDefaultValues: true,
+            },
+          ],
+        ],
       },
     },
   };

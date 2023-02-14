@@ -2,8 +2,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
 
-import './styles/index.scss';
-
 const App = () => {
   const { theme } = useTheme();
   return (
