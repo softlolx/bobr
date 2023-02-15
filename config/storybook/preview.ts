@@ -1,5 +1,5 @@
 import { addDecorator } from '@storybook/react';
-import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
+import { Theme } from '../../src/app/providers/ThemeProvider/lib/ThemeContext';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
 import '../../src/app/styles/index.scss';
 
@@ -13,7 +13,4 @@ export const parameters = {
   },
 };
 
-// addDecorator(StyleDecorator);
-// addDecorator(ThemeDecorator(Theme.LIGHT));
-
-export const decorators = [ThemeDecorator];
+addDecorator(ThemeDecorator(Theme.LIGHT));
