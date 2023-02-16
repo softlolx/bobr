@@ -3,7 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
 import { Button } from './Button';
-import { ButtonTheme } from './Button.types';
+import { ButtonSize, ButtonTheme } from './Button.types';
 
 export default {
   title: 'Example/Button',
@@ -38,3 +38,45 @@ OutlineDark.args = {
   theme: ButtonTheme.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Background = Template.bind({});
+Background.args = {
+  children: 'Text',
+  theme: ButtonTheme.BAKGROUND_INVERTED,
+};
+
+export const BackgroundInverted = Template.bind({});
+BackgroundInverted.args = {
+  children: 'Text',
+  theme: ButtonTheme.BAKGROUND_INVERTED,
+};
+
+export const SquareM = Template.bind({});
+SquareM.args = {
+  children: '>',
+  theme: ButtonTheme.BAKGROUND_INVERTED,
+  square: true,
+  size: ButtonSize.M,
+};
+
+export const SquareL = Template.bind({});
+SquareL.args = {
+  children: '>',
+  theme: ButtonTheme.BAKGROUND_INVERTED,
+  square: true,
+  size: ButtonSize.L,
+};
+
+export const SquareXL = Template.bind({});
+SquareXL.args = {
+  children: '>',
+  theme: ButtonTheme.BAKGROUND_INVERTED,
+  square: true,
+  size: ButtonSize.XL,
+};
+
+// export const OutlineDark = Template.bind({});
+// OutlineDark.args = {
+//   children: 'Text',
+//   theme: ButtonTheme.OUTLINE,
+// };
