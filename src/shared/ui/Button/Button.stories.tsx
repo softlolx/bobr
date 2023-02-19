@@ -75,8 +75,16 @@ SquareXL.args = {
   size: ButtonSize.XL,
 };
 
-// export const OutlineDark = Template.bind({});
-// OutlineDark.args = {
-//   children: 'Text',
-//   theme: ButtonTheme.OUTLINE,
-// };
+export const SizeM = Template.bind({});
+SizeM.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.M,
+};
+
+export const SizeXL = Template.bind({});
+SizeXL.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.XL,
+};
