@@ -5,7 +5,7 @@ import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { PageLoader } from 'shared/ui/PageLoader';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
-import { RootWrapper } from './RootWrapper';
+import { RootWrapper } from 'app/RootWrapper';
 
 const ErrorBoundaryLayout = () => (
   <ErrorBoundary>
