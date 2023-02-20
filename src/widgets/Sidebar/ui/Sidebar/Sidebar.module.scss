@@ -4,7 +4,7 @@
   height: calc(100vh - var(--navbar-height));
   background-color: var(--inverted-bg-color);
 
-  transition: width 0.35s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
 .switchers {
@@ -46,7 +46,7 @@
 
 .link {
   opacity: 1;
-  transition: opacity 0.25s linear;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .icon {
@@ -77,6 +77,6 @@
   .link {
     width: 0;
     opacity: 0;
-    transition: opacity 0.25s linear;
+    transition: opacity 0.1s ease-in-out;
   }
 }

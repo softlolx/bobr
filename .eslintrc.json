@@ -57,7 +57,10 @@
         "exports": "always-multiline",
         "functions": "never"
       }
-    ]
+    ],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "arrow-body-style": ["warn", "as-needed"]
   },
   "globals": {
     "__IS_DEV__": true
