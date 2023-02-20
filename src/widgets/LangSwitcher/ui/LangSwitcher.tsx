@@ -7,10 +7,11 @@ import cn from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
   className?: string;
+  collapsed: boolean;
 }
 
 export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
-  const { className } = props;
+  const { className, collapsed } = props;
   const { t, i18n } = useTranslation();
 
   const onLangSwitch = async () => {
@@ -23,7 +24,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
       theme={ButtonTheme.CLEAR}
       className={classNames(cn.LangSwitcher, {}, [className])}
     >
-      {t('Translation')}
+      {t(collapsed ? 'Lang-collapsed' : 'Translation')}
     </Button>
   );
 };
