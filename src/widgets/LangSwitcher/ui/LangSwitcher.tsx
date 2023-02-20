@@ -21,7 +21,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
   return (
     <Button
       onClick={onLangSwitch}
-      theme={ButtonTheme.CLEAR}
+      theme={ButtonTheme.BAKGROUND_INVERTED}
       className={classNames(cn.LangSwitcher, {}, [className])}
     >
       {t(collapsed ? 'Lang-collapsed' : 'Translation')}
