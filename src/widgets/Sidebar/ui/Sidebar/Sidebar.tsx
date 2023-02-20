@@ -7,6 +7,9 @@ import { Button } from 'shared/ui/Button/Button';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button.types';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
+import HomeIcon from 'shared/assets/icons/home-icon.svg';
+import AboutIcon from 'shared/assets/icons/info-icon.svg';
+
 import cn from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -29,11 +32,13 @@ export const Sidebar: FC<SidebarProps> = (props) => {
       data-testid='sidebar'
     >
       <div className={cn.links__container}>
-        <AppLink theme={AppLinkTheme.SECONDARY} to='/' className={cn.link}>
-          {t('Main')}
+        <AppLink theme={AppLinkTheme.SECONDARY} to='/' className={cn.link__container}>
+          <HomeIcon className={cn.icon} />
+          <span className={cn.link}>{t('Main')}</span>
         </AppLink>
-        <AppLink theme={AppLinkTheme.RED} to='/about' className={cn.link}>
-          {t('About')}
+        <AppLink theme={AppLinkTheme.RED} to='/about' className={cn.link__container}>
+          <AboutIcon className={cn.icon} />
+          <span className={cn.link}>{t('About')}</span>
         </AppLink>
       </div>
       <Button
