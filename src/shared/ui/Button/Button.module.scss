@@ -47,6 +47,14 @@
   outline: none;
 }
 
+.clearInverted {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  outline: none;
+  color: var(--inverted-primary-color);
+}
+
 .outline {
   padding: 4px 8px;
   background-color: transparent;
