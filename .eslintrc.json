@@ -8,6 +8,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb",
     "airbnb/hooks"
   ],
@@ -17,7 +18,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
     "indent": ["error", 2],
     "max-len": ["warn", { "code": 120 }],
@@ -60,7 +61,9 @@
     ],
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
-    "arrow-body-style": ["warn", "as-needed"]
+    "arrow-body-style": ["warn", "as-needed"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "globals": {
     "__IS_DEV__": true

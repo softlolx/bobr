@@ -3,13 +3,11 @@
 @import './themes/normal';
 @import './themes/dark';
 
-body,
 .App {
   font: var(--font-m);
 
   background-color: var(--bg-color);
   color: var(--primary-color);
-
   // display: flex;
   // flex-direction: column;
 
