@@ -21,8 +21,8 @@ export const Counter: FC<CounterProps> = () => {
   return (
     <div>
       <h2>{counterValue}</h2>
-      <Button onClick={onIncrement}>increment</Button>
       <Button onClick={onDecrement}>decrement</Button>
+      <Button onClick={onIncrement}>increment</Button>
     </div>
   );
 };
