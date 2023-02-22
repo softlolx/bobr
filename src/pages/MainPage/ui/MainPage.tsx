@@ -1,3 +1,4 @@
+import { Counter } from 'entities/Counter';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -16,6 +17,7 @@ const MainPage: FC<MainPageProps> = (props) => {
     <div className={classNames(cn.MainPage, {}, [])}>
       {t('Main page')}
       {/* <PageLoader /> */}
+      <Counter />
     </div>
   );
 };
