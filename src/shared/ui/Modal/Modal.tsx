@@ -56,9 +56,9 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const onContentClick = (evt: React.MouseEvent) => evt.stopPropagation();
 
-  if (lazyload && !isMounted) {
-    return null;
-  }
+  // if (lazyload && !isMounted) {
+  //   return null;
+  // }
 
   return (
     <Portal>

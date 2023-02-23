@@ -7,10 +7,11 @@ import cn from './LoginForm.module.scss';
 
 interface LoginFormProps {
   className?: string;
+  isFormOpen?: boolean;
 }
 
 export const LoginForm: FC<LoginFormProps> = (props) => {
-  const { className } = props;
+  const { className, isFormOpen } = props;
   const { t } = useTranslation();
 
   const [value, setValue] = useState({ username: '', password: '' });
@@ -35,6 +36,7 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         type='text'
         className={cn.login__input}
         placeholder='Username'
+        isFormOpen={isFormOpen}
         autofocus
       />
       <Input

@@ -10,6 +10,7 @@ export const Input: FC<InputProps> = (props) => {
     onChange,
     type = 'text',
     placeholder,
+    isFormOpen,
     autofocus,
     ...otherProps
   } = props;
@@ -21,11 +22,11 @@ export const Input: FC<InputProps> = (props) => {
   const [caretPos, setCaretPos] = useState(0);
 
   useEffect(() => {
-    if (autofocus) {
+    if (isFormOpen && autofocus) {
       setIsFocused(true);
       inputRef.current?.focus();
     }
-  }, [autofocus]);
+  }, [autofocus, isFormOpen]);
 
   const onFocus = () => {
     setIsFocused(true);

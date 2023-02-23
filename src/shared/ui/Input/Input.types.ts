@@ -16,4 +16,5 @@ export interface InputProps extends HTMLInputProps {
   type: string;
   placeholder?: string;
   autofocus?: boolean;
+  isFormOpen?: boolean;
 }
