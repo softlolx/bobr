@@ -1,0 +1,46 @@
+.input__wrapper {
+  display: flex;
+  gap: 6px;
+}
+
+.caret__wrapper {
+  flex-grow: 1;
+  position: relative;
+}
+
+.caret {
+  height: 3px;
+  width: 9px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+
+  animation: blink 0.6s forwards infinite;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: transparent;
+  // color: var(--primary-color);
+  text-shadow: 0 0 0 var(--primary-color);
+  width: 100%;
+
+  border-bottom: 0.5px solid var(--inverted-primary-color);
+  &:focus {
+    outline: none;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.05;
+  }
+  100% {
+  }
+}

@@ -6,13 +6,14 @@ import cn from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
 
 export const Modal: FC<ModalProps> = (props) => {
-  const { className, children, isOpen, setIsOpen } = props;
+  const { className, children, isOpen, setIsOpen, lazyload } = props;
 
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const { theme } = useTheme();
 
-  const timer = useRef<ReturnType<typeof setTimeout>>();
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
 
   const mods: Record<string, boolean> = {
     [cn.isOpen]: isOpen,
@@ -21,7 +22,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const handleModalClose = useCallback(() => {
     setIsClosing(true);
-    timer.current = setTimeout(() => {
+    closeTimer.current = setTimeout(() => {
       setIsClosing(false);
       setIsOpen(false);
     }, 300);
@@ -38,16 +39,26 @@ export const Modal: FC<ModalProps> = (props) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
 
     return () => {
-      clearTimeout(timer.current);
+      clearTimeout(closeTimer.current);
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);
 
   const onContentClick = (evt: React.MouseEvent) => evt.stopPropagation();
+
+  if (lazyload && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

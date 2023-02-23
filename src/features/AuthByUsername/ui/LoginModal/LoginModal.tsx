@@ -13,5 +13,9 @@ interface LoginModalProps {
 export const LoginModal: FC<LoginModalProps> = (props) => {
   const { className, isOpen, setIsOpen } = props;
 
-  return <Modal isOpen={isOpen} setIsOpen={setIsOpen} className={classNames(cn.LoginModal)}><LoginForm /></Modal>;
+  return (
+    <Modal lazyload isOpen={isOpen} setIsOpen={setIsOpen} className={classNames(cn.LoginModal)}>
+      <LoginForm />
+    </Modal>
+  );
 };

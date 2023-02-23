@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 @import '../themes/normal.scss';
 @import '../themes/dark.scss';
 @import '../themes/red.scss';
@@ -6,7 +6,7 @@
 :root {
   // font
 
-  --font-family-main: 'PT Sans', sans-serif;
+  --font-family-main: 'Inconsolata', sans-serif;
 
   --font-size-s: 12px;
   --font-line-s: 20px;
