@@ -15,6 +15,7 @@ export interface InputProps extends HTMLInputProps {
   onChange: (value: string) => void;
   type: string;
   placeholder?: string;
+  customPlaceholder?: string;
   autofocus?: boolean;
   isFormOpen?: boolean;
 }

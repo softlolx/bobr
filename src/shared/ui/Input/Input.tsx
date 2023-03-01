@@ -10,6 +10,7 @@ export const Input: FC<InputProps> = (props) => {
     onChange,
     type = 'text',
     placeholder,
+    customPlaceholder,
     isFormOpen,
     autofocus,
     ...otherProps
@@ -48,7 +49,7 @@ export const Input: FC<InputProps> = (props) => {
 
   return (
     <div className={classNames(cn.input__wrapper, mods, [className])}>
-      {placeholder && <div className={cn.placeholder}>{`${placeholder}:`}</div>}
+      {customPlaceholder && <div className={cn.placeholder}>{`${customPlaceholder}:`}</div>}
       <div className={cn.caret__wrapper}>
         <input
           ref={inputRef}
@@ -59,6 +60,7 @@ export const Input: FC<InputProps> = (props) => {
           onFocus={onFocus}
           onBlur={onBlur}
           onSelect={onSelect}
+          placeholder={placeholder}
           {...otherProps}
         />
         {isFocused && <span className={cn.caret} style={{ left: `${caretPos * 8}px` }} />}

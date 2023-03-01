@@ -14,7 +14,7 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
   const { className, isOpen, setIsOpen } = props;
 
   return (
-    <Modal lazyload isOpen={isOpen} setIsOpen={setIsOpen} className={classNames(cn.LoginModal)}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} className={classNames(cn.LoginModal)}>
       <LoginForm isFormOpen={isOpen} />
     </Modal>
   );

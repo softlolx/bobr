@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
@@ -35,7 +35,7 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         onChange={onChangeUsername}
         type='text'
         className={cn.login__input}
-        placeholder='Username'
+        customPlaceholder='Username'
         isFormOpen={isFormOpen}
         autofocus
       />
@@ -44,7 +44,7 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         onChange={onChangePassword}
         type='text'
         className={cn.login__input}
-        placeholder='Password'
+        customPlaceholder='Password'
       />
 
       <Button className={cn.login__button}>{t('Enter')}</Button>
