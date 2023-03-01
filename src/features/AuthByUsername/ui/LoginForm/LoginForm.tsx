@@ -1,8 +1,12 @@
-import { FC, useState } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
+import { ButtonTheme } from 'shared/ui/Button/Button.types';
 import { Input } from 'shared/ui/Input/Input';
+import { loginActions } from 'features/AuthByUsername';
+import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState';
 import cn from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -10,29 +14,25 @@ interface LoginFormProps {
   isFormOpen?: boolean;
 }
 
-export const LoginForm: FC<LoginFormProps> = (props) => {
+const LoginForm: FC<LoginFormProps> = (props) => {
   const { className, isFormOpen } = props;
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const login = useSelector(getLoginState);
 
-  const [value, setValue] = useState({ username: '', password: '' });
+  const handleChangeUsername = useCallback((value: string) => {
+    dispatch(loginActions.setUsername(value));
+  }, [dispatch]);
 
-  const onChangeUsername = (value: string) => {
-    setValue((prev) => {
-      return { ...prev, username: value };
-    });
-  };
-
-  const onChangePassword = (value: string) => {
-    setValue((prev) => {
-      return { ...prev, password: value };
-    });
-  };
+  const handleChangePassword = useCallback((value: string) => {
+    dispatch(loginActions.setPassword(value));
+  }, [dispatch]);
 
   return (
     <div className={classNames(cn.LoginForm)}>
       <Input
-        value={value.username}
-        onChange={onChangeUsername}
+        value={login.username}
+        onChange={handleChangeUsername}
         type='text'
         className={cn.login__input}
         customPlaceholder='Username'
@@ -40,14 +40,18 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         autofocus
       />
       <Input
-        value={value.password}
-        onChange={onChangePassword}
+        value={login.password}
+        onChange={handleChangePassword}
         type='text'
         className={cn.login__input}
         customPlaceholder='Password'
       />
 
-      <Button className={cn.login__button}>{t('Enter')}</Button>
+      <Button theme={ButtonTheme.OUTLINE} className={cn.login__button}>
+        {t('Enter')}
+      </Button>
     </div>
   );
 };
+
+export default memo(LoginForm);
