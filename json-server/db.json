@@ -1,0 +1,26 @@
+{
+  "posts": [
+    { "id": "1", "title": "json-server", "author": "den" },
+    { "id": "2", "title": "json-server", "author": "denis" },
+    { "id": "3", "title": "json-server", "author": "typicode" },
+    { "id": "4", "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [{ "id": "1", "body": "some comment", "postId": 1 }],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Konstantin",
+    "lastname": "Snegirev",
+    "age": "29",
+    "currency": "USD",
+    "country": "Belarus",
+    "city": "Minsk",
+    "username": "softlolx",
+    "avatar": "https://sun9-33.userapi.com/impf/c831408/v831408538/54d28/dfYOnVk2veA.jpg?size=439x600&quality=96&sign=ba495e5220158f93e1701d4c8ebd2a51&type=album"
+  }
+}

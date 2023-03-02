@@ -28,6 +28,10 @@ const LoginForm: FC<LoginFormProps> = (props) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
+  const hadleLoginClick = useCallback(() => {
+    //
+  }, []);
+
   return (
     <div className={classNames(cn.LoginForm)}>
       <Input
@@ -47,7 +51,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
         customPlaceholder='Password'
       />
 
-      <Button theme={ButtonTheme.OUTLINE} className={cn.login__button}>
+      <Button onClick={hadleLoginClick} theme={ButtonTheme.OUTLINE} className={cn.login__button}>
         {t('Enter')}
       </Button>
     </div>
