@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -11,6 +11,8 @@ import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginS
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
 import { Action } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { Text } from 'shared/ui/Text/Text';
+import { TextTheme } from 'shared/ui/Text/Text.types';
 import cn from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -22,7 +24,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
   const { className, isFormOpen } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch<ThunkDispatch<StateSchema, undefined, Action>>();
-  const { username, password } = useSelector(getLoginState);
+  const { username, password, isLoading, error } = useSelector(getLoginState);
 
   const handleChangeUsername = useCallback(
     (value: string) => {
@@ -42,8 +44,15 @@ const LoginForm: FC<LoginFormProps> = (props) => {
     dispatch(loginByUsername({ username, password }));
   }, [dispatch, username, password]);
 
+  useEffect(() => {
+    return () => {
+      dispatch(loginActions.resetStore());
+    };
+  }, [isFormOpen]);
+
   return (
     <div className={classNames(cn.LoginForm)}>
+      {error ? <Text text={error} theme={TextTheme.ERROR} /> : <Text title='Auth form' />}
       <Input
         value={username}
         onChange={handleChangeUsername}
@@ -60,8 +69,12 @@ const LoginForm: FC<LoginFormProps> = (props) => {
         className={cn.login__input}
         customPlaceholder='Password'
       />
-
-      <Button onClick={hadleLoginClick} theme={ButtonTheme.OUTLINE} className={cn.login__button}>
+      <Button
+        onClick={hadleLoginClick}
+        theme={ButtonTheme.OUTLINE}
+        className={cn.login__button}
+        disabled={isLoading}
+      >
         {t('Enter')}
       </Button>
     </div>

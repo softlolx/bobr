@@ -1,6 +1,11 @@
 .Button {
   color: var(--primary-color);
   cursor: pointer;
+  transition: scale 0.1s linear;
+
+  &:active {
+    scale: 1.1;
+  }
 }
 
 .square.size_s {
@@ -77,4 +82,11 @@
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
   border: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  &:active {
+    scale: 1;
+  }
 }
