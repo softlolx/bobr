@@ -1,8 +1,8 @@
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { User, userActions } from 'entities/User';
 import { USER_LS_KEY } from 'shared/const/localstorage';
+import { User, userActions } from '../../../../entities/User';
 
 interface LoginByUsernameProps {
   username: string;

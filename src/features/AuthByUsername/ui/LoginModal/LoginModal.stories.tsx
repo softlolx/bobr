@@ -1,6 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
 import { LoginModal } from './LoginModal';
 
@@ -16,14 +14,5 @@ const Template: ComponentStory<typeof LoginModal> = (args) => <LoginModal {...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-  isOpen: true,
-  children: 'Text',
+  isFormOpen: true,
 };
-
-export const Dark = Template.bind({});
-Dark.args = {
-  isOpen: true,
-  children: 'Text',
-};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];

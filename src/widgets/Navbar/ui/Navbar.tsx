@@ -4,26 +4,21 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { ButtonTheme } from 'shared/ui/Button/Button.types';
-import { getUserAuthData, userActions } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from '../../../entities/User';
 import cn from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = (props) => {
-  const { className } = props;
+export const Navbar: FC<NavbarProps> = () => {
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-
-  const onCloseAuthModal = useCallback(() => {
-    setIsAuthModalOpen(false);
-  }, []);
 
   const onShowAuthModal = useCallback(() => {
     setIsAuthModalOpen(true);
